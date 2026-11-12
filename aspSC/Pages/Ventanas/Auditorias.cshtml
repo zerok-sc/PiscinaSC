@@ -1,0 +1,60 @@
+@page
+@model AuditoriasModel
+@{
+    ViewData["Title"] = "Auditorias";
+}
+<form method="post"
+    enctype="multipart/form-data">
+
+    <div class="text-center">
+        <h1 class="display-4">Auditorias</h1>
+        <div>
+            <input type="submit"
+                value="Consultar"
+                class="btn btn-secondary"
+                asp-page-handler="BtConsultar"/>
+            <input id="flDescripcion"
+                placeholder="Descripcion"
+                asp-for="@Model.Filtro!.Descripcion"/>
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml");
+        }
+
+        <br />
+        <br />
+        <div class="containers_vn panel panel-default">
+            <table class="tb_data table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tabla</th>
+                    <th>Operacion</th>
+                    <th>Descripcion</th>
+                    <th>Monto</th>
+                    <th>Exitosa</th>
+                    <th>Reserva</th>
+                    <th>Piscina</th>
+                </tr>
+                @if (Model != null && Model.Lista != null)
+                {
+                    foreach (var elemento in Model.Lista)
+                    {
+                        <tr>
+                            <td>@elemento.Fecha</td>
+                            <td>@elemento.Tabla</td>
+                            <td>@elemento.Operacion</td>
+                            <td>@elemento.Descripcion</td>
+                            <td>@elemento.Monto</td>
+                            <td>@elemento.Exitosa</td>
+                            <td>@elemento._Reserva?.Codigo</td>
+                            <td>@elemento._Piscina?.Nombre</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+
+        </div>
+</form>

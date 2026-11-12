@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="aspSC/aspSC.csproj" />
+  <Project Path="libSC/libSC.csproj" />
+</Solution>
