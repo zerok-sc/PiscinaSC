@@ -42,7 +42,7 @@ namespace aspSC.Pages.Ventanas
             try
             {
                 Formulario = true;
-                this.Actual = new Reservas();
+                this.Actual = new Reservas { Estado = true };
             }
             catch (Exception ex)
             {

@@ -13,6 +13,7 @@ namespace aspSC.Pages.Ventanas
         public AuditoriasModel(IAuditoriasAplicacion IAuditoriasAplicacion)
         {
             this.IAuditoriasAplicacion = IAuditoriasAplicacion;
+            this.Filtro = new Auditorias();
         }
 
         [BindProperty] public List<Auditorias> Lista { get; set; }

@@ -42,7 +42,7 @@ namespace aspSC.Pages.Ventanas
             try
             {
                 Formulario = true;
-                this.Actual = new Piscinas();
+                this.Actual = new Piscinas { Estado = true, FechaCreacion = DateTime.Now };
             }
             catch (Exception ex)
             {
